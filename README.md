@@ -1,73 +1,51 @@
-# React + TypeScript + Vite
+# 🏫 Berlin Primary Schools Guide (2025/26)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive, high-performance web application designed to help parents compare English–German bilingual and international primary schools in Berlin.
 
-Currently, two official plugins are available:
+![Berlin Schools App Proof](https://img.shields.io/badge/Status-Production--Ready-success?style=for-the-badge)
+![Tech Stack](https://img.shields.io/badge/Stack-React%20%7C%20TS%20%7C%20MUI-blue?style=for-the-badge)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+-   **Comprehensive Data**: Details on 14 primary schools including Tuition Fees, Open Day dates, School Types (Private Bilingual, International, Public SESB), and Districts.
+-   **Intelligent Sorting**: Sort schools dynamically by:
+    -   **Fees**: Range from Free (SESB) to fixed/income-based private tuition.
+    -   **Open Days**: Track upcoming info events and open house dates.
+    -   **Distance**: real-time calculation from **Thorwaldsenstraße 25, 12157 Berlin**.
+-   **View Modes**:
+    -   **Standard Table**: A flat list for quick scanning.
+    -   **By District**: Automatic grouping to see localized options in Mitte, Steglitz, Zehlendorf, etc.
+-   **Detailed Insights**: Click any school to open a premium detail dialog with full schedules, fee breakdowns, and direct website links.
+-   **Premium UI**: Dark-mode aesthetic with glassmorphism, smooth transitions (MUI Zoom), and high-contrast accessibility.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Getting Started
 
-## Expanding the ESLint configuration
+### Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+-   Node.js (v18+)
+-   npm or yarn
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Installation
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🏗️ Production & Deployment
+
+### Build
+To create a production-optimized build:
+```bash
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Deploy to Vercel
+The project includes a `vercel.json` for seamless SPA routing.
+1. Install Vercel CLI: `npm i -g vercel`
+2. Run `vercel --prod`
