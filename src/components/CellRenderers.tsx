@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Chip, Typography, Tooltip } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import type { School, SchoolType } from '../types/school';

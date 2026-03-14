@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import {
     Box,
     Container,
@@ -14,7 +14,6 @@ import {
     Select,
     MenuItem,
     FormControl,
-    InputLabel,
     type SelectChangeEvent,
 } from '@mui/material';
 import TableChartIcon from '@mui/icons-material/TableChart';
