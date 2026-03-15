@@ -14,6 +14,8 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import EuroIcon from '@mui/icons-material/Euro';
 import PlaceIcon from '@mui/icons-material/Place';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import type { School } from '../types/school';
 import {
     feeRangeLabel,
@@ -70,6 +72,14 @@ export default function SchoolDetailPanel({ school }: SchoolDetailPanelProps) {
                             size="small"
                             variant="outlined"
                             sx={{ fontSize: '0.68rem', height: 22, borderColor: 'divider' }}
+                        />
+                        <Chip
+                            icon={school.isRegistered ? <CheckCircleIcon sx={{ fontSize: '14px !important' }} /> : <RadioButtonUncheckedIcon sx={{ fontSize: '14px !important' }} />}
+                            label={school.isRegistered ? 'Registered' : 'Not Registered'}
+                            size="small"
+                            color={school.isRegistered ? 'success' : 'default'}
+                            variant={school.isRegistered ? 'filled' : 'outlined'}
+                            sx={{ fontSize: '0.68rem', height: 22 }}
                         />
                     </Box>
                 </Box>

@@ -1,7 +1,9 @@
 export type SchoolType =
   | 'Private International'
   | 'Private Bilingual'
-  | 'Public SESB';
+  | 'Private (Ersatzschule)'
+  | 'Public SESB'
+  | 'Public International';
 
 export type FeeStructure =
   | 'fixed'
@@ -42,4 +44,6 @@ export interface School {
   lng: number;
   /** Computed distance in km from reference point – populated at runtime */
   distanceKm?: number;
+  /** Whether registered for open school/days */
+  isRegistered: boolean;
 }

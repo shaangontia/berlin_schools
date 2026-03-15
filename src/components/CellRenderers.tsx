@@ -1,5 +1,7 @@
 import { Box, Chip, Typography, Tooltip } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import type { School, SchoolType } from '../types/school';
 import {
     feeRangeLabel,
@@ -12,10 +14,12 @@ interface SchoolTypeChipProps {
 }
 
 export function SchoolTypeChip({ type }: SchoolTypeChipProps) {
-    const colorMap: Record<SchoolType, 'info' | 'secondary' | 'success'> = {
+    const colorMap: Record<SchoolType, 'info' | 'secondary' | 'success' | 'primary' | 'warning'> = {
         'Private International': 'info',
         'Private Bilingual': 'secondary',
+        'Private (Ersatzschule)': 'primary',
         'Public SESB': 'success',
+        'Public International': 'warning',
     };
     const color = colorMap[type] ?? 'default';
     return (
@@ -169,6 +173,31 @@ export function DistanceCell({ distanceKm }: DistanceCellProps) {
             <Typography variant="caption" color="text.secondary" sx={{ display: 'block' }}>
                 from reference
             </Typography>
+        </Box>
+    );
+}
+
+interface RegisteredCellProps {
+    isRegistered: boolean;
+}
+
+export function RegisteredCell({ isRegistered }: RegisteredCellProps) {
+    return (
+        <Box sx={{ py: 2 }}>
+            <Chip
+                label={isRegistered ? 'Registered' : 'Not Registered'}
+                icon={isRegistered ? <CheckCircleIcon /> : <RadioButtonUncheckedIcon />}
+                color={isRegistered ? 'success' : 'default'}
+                variant={isRegistered ? 'filled' : 'outlined'}
+                size="small"
+                sx={{
+                    fontWeight: 600,
+                    fontSize: '0.7rem',
+                    '& .MuiChip-icon': {
+                        fontSize: 16,
+                    },
+                }}
+            />
         </Box>
     );
 }

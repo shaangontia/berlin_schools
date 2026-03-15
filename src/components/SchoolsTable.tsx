@@ -21,6 +21,7 @@ import {
     FeesCell,
     OpenDayCell,
     DistanceCell,
+    RegisteredCell,
 } from './CellRenderers';
 import SchoolDetailPanel from './SchoolDetailPanel';
 
@@ -47,6 +48,7 @@ function buildRows(schools: School[]): GridRowsProp {
             const od = nextOrLatestOpenDay(s.openDays);
             return od ? formatDate(od.date) : 'Not published';
         })(),
+        isRegistered: s.isRegistered,
     }));
 }
 
@@ -143,6 +145,16 @@ export default function SchoolsTable({
                     const v = value as number;
                     return v === Infinity ? '–' : `${v.toFixed(1)} km`;
                 },
+            },
+            {
+                field: 'isRegistered',
+                headerName: 'Registration',
+                flex: 1,
+                minWidth: 140,
+                sortable: true,
+                renderCell: (params) => (
+                    <RegisteredCell isRegistered={params.value as boolean} />
+                ),
             },
         ],
         [],
